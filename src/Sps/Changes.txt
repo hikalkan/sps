@@ -1,0 +1,2 @@
+﻿# Version 1.0.0.0 - 17.04.2011 - Halil ibrahim KALKAN
+  First release.

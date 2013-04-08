@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Add", "Add\Add.csproj", "{FF5A0FCC-2236-43B2-A580-BA320EB0CBA4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dependencies", "Dependencies", "{4142435E-50EF-457A-A8E7-06643A7ACB17}"
+	ProjectSection(SolutionItems) = preProject
+		Dependencies\CalculatorPlugInLib.dll = Dependencies\CalculatorPlugInLib.dll
+		Dependencies\CalculatorPlugInLib.XML = Dependencies\CalculatorPlugInLib.XML
+		Dependencies\Sps.dll = Dependencies\Sps.dll
+		Dependencies\Sps.XML = Dependencies\Sps.XML
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiplyAndDivision", "MultiplyAndDivision\MultiplyAndDivision.csproj", "{8BDB78CA-FB79-47DE-BB4C-AD27C166A707}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FF5A0FCC-2236-43B2-A580-BA320EB0CBA4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF5A0FCC-2236-43B2-A580-BA320EB0CBA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF5A0FCC-2236-43B2-A580-BA320EB0CBA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF5A0FCC-2236-43B2-A580-BA320EB0CBA4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8BDB78CA-FB79-47DE-BB4C-AD27C166A707}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8BDB78CA-FB79-47DE-BB4C-AD27C166A707}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8BDB78CA-FB79-47DE-BB4C-AD27C166A707}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8BDB78CA-FB79-47DE-BB4C-AD27C166A707}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CalculatorPlugInLib</name>
+    </assembly>
+    <members>
+        <member name="T:CalculatorPlugInLib.ICalculatorApplication">
+            <summary>
+            Defines the application interface that can be used by plug-ins.
+            </summary>
+        </member>
+        <member name="M:CalculatorPlugInLib.ICalculatorApplication.ShowMessage(System.String)">
+            <summary>
+            This method can be called by plugins to show a message to the user if needed.
+            </summary>
+            <param name="message">The message to be shown</param>
+        </member>
+        <member name="T:CalculatorPlugInLib.ICalculatorOperationPlugIn">
+            <summary>
+            Defines the plug-in interface for the calculator application.
+            A class must implement this interface to be a plug-in for the calculator.
+            Calculator application uses plug-ins through this interface.
+            </summary>
+        </member>
+        <member name="M:CalculatorPlugInLib.ICalculatorOperationPlugIn.DoOperation(System.Double,System.Double)">
+            <summary>
+            Performs the operation.
+            </summary>
+            <param name="number1">First number</param>
+            <param name="number2">Second number</param>
+            <returns>Result of opeartion according to this operation</returns>
+        </member>
+        <member name="P:CalculatorPlugInLib.ICalculatorOperationPlugIn.OperationSign">
+            <summary>
+            Gets the sign that represents this operation.
+            For adding, it may be a plus sign (+).
+            </summary>
+        </member>
+    </members>
+</doc>

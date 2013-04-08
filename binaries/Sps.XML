@@ -1,0 +1,401 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Sps</name>
+    </assembly>
+    <members>
+        <member name="T:Hik.Sps.Runnable.RunnablePlugIn`1">
+            <summary>
+            This class is used to make possible to create a plugin that implements
+            IRunnablePlugInApplication interface. A plugin must inherit this class to be used by
+            main runnable application.
+            </summary>
+            <typeparam name="TApp">Type of main runnable application interface</typeparam>
+        </member>
+        <member name="T:Hik.Sps.PlugIn`1">
+            <summary>
+            This class is used to make possible to create a plugin that implements
+            IPlugIn interface. A plugin must derive this class to be used by
+            main application.
+            </summary>
+            <typeparam name="TApp">Type of main application interface</typeparam>
+        </member>
+        <member name="T:Hik.Sps.IPlugIn">
+            <summary>
+            This interface is implemented all plugins.
+            PlugIns does not directly implement this interface, but they implement by inheriting PlugIn class.
+            </summary>
+        </member>
+        <member name="T:Hik.Sps.IPluggable">
+            <summary>
+             This interface is implemented by all plugIns and plugin based applications by default.
+             Thay may be used to implement plugins and plugin based applications that does not defines any method.
+            </summary>
+        </member>
+        <member name="P:Hik.Sps.IPlugIn.Name">
+            <summary>
+            Name of the plugin.
+            </summary>
+        </member>
+        <member name="M:Hik.Sps.PlugIn`1.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="P:Hik.Sps.PlugIn`1.Application">
+            <summary>
+            Gets a reference to main application.
+            </summary>
+        </member>
+        <member name="P:Hik.Sps.PlugIn`1.Name">
+            <summary>
+            Gets the name of this plugin.
+            </summary>
+        </member>
+        <member name="T:Hik.Sps.Runnable.IRunnablePlugIn">
+            <summary>
+            This interface is extended by plugins which are used by runnable plugin
+            applications.
+            </summary>
+        </member>
+        <member name="T:Hik.Sps.Runnable.IRunnable">
+            <summary>
+            Interface to control modules that can run in self thread.
+            </summary>
+        </member>
+        <member name="M:Hik.Sps.Runnable.IRunnable.Start">
+            <summary>
+            Starts the module.
+            </summary>
+        </member>
+        <member name="M:Hik.Sps.Runnable.IRunnable.Stop">
+            <summary>
+            Stops the module.
+            </summary>
+        </member>
+        <member name="M:Hik.Sps.Runnable.IRunnable.WaitToStop">
+            <summary>
+            Waits the module to stop.
+            </summary>
+        </member>
+        <member name="E:Hik.Sps.Runnable.IRunnablePlugIn.Started">
+            <summary>
+            This event is raised when plugin is started by main application.
+            </summary>
+        </member>
+        <member name="E:Hik.Sps.Runnable.IRunnablePlugIn.Stopped">
+            <summary>
+            This event is raised when plugin is stopped by main application.
+            </summary>
+        </member>
+        <member name="M:Hik.Sps.Runnable.RunnablePlugIn`1.Start">
+            <summary>
+            Starts the plugin.
+            </summary>
+        </member>
+        <member name="M:Hik.Sps.Runnable.RunnablePlugIn`1.Stop">
+            <summary>
+            Stops the plugin.
+            </summary>
+        </member>
+        <member name="M:Hik.Sps.Runnable.RunnablePlugIn`1.WaitToStop">
+            <summary>
+            Waits stopping of the plugin.
+            </summary>
+        </member>
+        <member name="M:Hik.Sps.Runnable.RunnablePlugIn`1.OnStart">
+            <summary>
+            This method is called when plugin is started and raises Started event.
+            A plugin may override this method or register to Started event
+            to perform operations on startup.
+            </summary>
+        </member>
+        <member name="M:Hik.Sps.Runnable.RunnablePlugIn`1.OnStop">
+            <summary>
+            This method is called when plugin is stopped and raises Stopped event.
+            A pluging may override this method or register to Stopped event
+            to perform operations on stopping.
+            </summary>
+        </member>
+        <member name="M:Hik.Sps.Runnable.RunnablePlugIn`1.OnWaitToStop">
+            <summary>
+            This method is called when plugin is being waited to stop.
+            A pluging may override this method to perform additional operations after all plugins are stopped.
+            </summary>
+        </member>
+        <member name="E:Hik.Sps.Runnable.RunnablePlugIn`1.Started">
+            <summary>
+            This event is raised when plugin is started by main application.
+            </summary>
+        </member>
+        <member name="E:Hik.Sps.Runnable.RunnablePlugIn`1.Stopped">
+            <summary>
+            This event is raised when plugin is stopped by main application.
+            </summary>
+        </member>
+        <member name="T:Hik.Sps.PlugInApplicationAttribute">
+            <summary>
+            This attribute is used to mark a class as a PlugIn based Application.
+            </summary>
+        </member>
+        <member name="M:Hik.Sps.PlugInApplicationAttribute.#ctor(System.String)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="name">Name of the PlugIn</param>
+        </member>
+        <member name="P:Hik.Sps.PlugInApplicationAttribute.Name">
+            <summary>
+            Name of the PlugIn.
+            </summary>
+        </member>
+        <member name="T:Hik.Sps.PlugInAttribute">
+            <summary>
+            This attribute is used to mark a class as a PlugIn.
+            </summary>
+        </member>
+        <member name="M:Hik.Sps.PlugInAttribute.#ctor(System.String)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="name">Name of the PlugIn</param>
+        </member>
+        <member name="P:Hik.Sps.PlugInAttribute.Name">
+            <summary>
+            Name of the PlugIn.
+            </summary>
+        </member>
+        <member name="T:Hik.Sps.IPlugInBasedApplication">
+            <summary>
+            All plugin-based applications implements this interface.
+            Applications does not directly implement this interface, but they implement by inheriting PlugInBasedApplication class.
+            </summary>
+        </member>
+        <member name="P:Hik.Sps.IPlugInBasedApplication.Name">
+            <summary>
+            Gets the name of this Application.
+            </summary>
+        </member>
+        <member name="T:Hik.Sps.IPlugInApplication`1">
+            <summary>
+            Represents a plugin-based application from perspective of plugins.
+            </summary>
+            <typeparam name="TApp">Type of application interface</typeparam>
+        </member>
+        <member name="P:Hik.Sps.IPlugInApplication`1.ApplicationProxy">
+            <summary>
+            Proxy object to use application by plugin over application interface.
+            </summary>
+        </member>
+        <member name="P:Hik.Sps.IPlugInApplication`1.Name">
+            <summary>
+            Name of the application.
+            </summary>
+        </member>
+        <member name="T:Hik.Sps.IApplicationPlugIn`1">
+            <summary>
+            Represents a plugin from application perspective.
+            Application uses a plugin over this interface.
+            </summary>
+            <typeparam name="TPlugIn">Type of plugin interface</typeparam>
+        </member>
+        <member name="P:Hik.Sps.IApplicationPlugIn`1.Name">
+            <summary>
+            Name of the plugin.
+            </summary>
+        </member>
+        <member name="P:Hik.Sps.IApplicationPlugIn`1.PlugInProxy">
+            <summary>
+            Proxy object to use plugin over plugin interface.
+            </summary>
+        </member>
+        <member name="T:Hik.Sps.Runnable.RunnablePlugInBasedApplication`1">
+            <summary>
+            This class is used as a base class for plugin applications that they and their plugins can be run (start/stop).
+            </summary>
+            <typeparam name="TPlugIn">Type of PlugIn that is used by plugin application</typeparam>
+        </member>
+        <member name="T:Hik.Sps.PlugInBasedApplication`1">
+            <summary>
+            This class must be inherited by applications that uses plugins.
+            </summary>
+            <typeparam name="TPlugIn">Type of PlugIn interface that is used by application</typeparam>
+        </member>
+        <member name="M:Hik.Sps.PlugInBasedApplication`1.#ctor">
+            <summary>
+            Default Constructor.
+            </summary>
+        </member>
+        <member name="M:Hik.Sps.PlugInBasedApplication`1.#ctor(System.String)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="plugInFolder">plugin folder for this application</param>
+        </member>
+        <member name="M:Hik.Sps.PlugInBasedApplication`1.LoadPlugIns">
+            <summary>
+            Loads all PlugIns in PlugInFolder directory.
+            </summary>
+        </member>
+        <member name="M:Hik.Sps.PlugInBasedApplication`1.Initialize">
+            <summary>
+            Initializes this class.
+            </summary>
+        </member>
+        <member name="P:Hik.Sps.PlugInBasedApplication`1.Name">
+            <summary>
+            Gets the name of this Application.
+            </summary>
+        </member>
+        <member name="P:Hik.Sps.PlugInBasedApplication`1.PlugIns">
+            <summary>
+            All plugins that are loaded in this application.
+            </summary>
+        </member>
+        <member name="P:Hik.Sps.PlugInBasedApplication`1.PlugInFolder">
+            <summary>
+            Gets/Sets the plugin folder for this application.
+            Default: Root directory of application.
+            </summary>
+        </member>
+        <member name="P:Hik.Sps.PlugInBasedApplication`1.PlugInsLoaded">
+            <summary>
+            A boolean value indicates whether plugins are loaded or not.
+            </summary>
+        </member>
+        <member name="M:Hik.Sps.Runnable.RunnablePlugInBasedApplication`1.Start">
+            <summary>
+            Starts the plugin application and all plugins.
+            </summary>
+        </member>
+        <member name="M:Hik.Sps.Runnable.RunnablePlugInBasedApplication`1.Stop">
+            <summary>
+            Stops the plugin application and all plugins.
+            </summary>
+        </member>
+        <member name="M:Hik.Sps.Runnable.RunnablePlugInBasedApplication`1.WaitToStop">
+            <summary>
+            Waits stopping of the plugin application and all plugins.
+            </summary>
+        </member>
+        <member name="M:Hik.Sps.Runnable.RunnablePlugInBasedApplication`1.OnStarting">
+            <summary>
+            This method is called when plugin application is started and raises Starting event.
+            A plugin application may override this method or register to Starting event
+            to perform operations on startup (before starting of plugins).
+            </summary>
+        </member>
+        <member name="M:Hik.Sps.Runnable.RunnablePlugInBasedApplication`1.OnStarted">
+            <summary>
+            This method is called when plugin application is started and raises Started event.
+            A plugin application may override this method or register to Started event
+            to perform operations on startup (after starting of plugins).
+            </summary>
+        </member>
+        <member name="M:Hik.Sps.Runnable.RunnablePlugInBasedApplication`1.OnStopping">
+            <summary>
+            This method is called when plugin application is stopped and raises Stopping event.
+            A pluging application may override this method or register to Stopping event
+            to perform operations on stopping (before stopping of plugins).
+            </summary>
+        </member>
+        <member name="M:Hik.Sps.Runnable.RunnablePlugInBasedApplication`1.OnStopped">
+            <summary>
+            This method is called when plugin application is stopped and raises Stopped event.
+            A pluging application may override this method or register to Stopped event
+            to perform operations on stopping (after stopping of plugins).
+            </summary>
+        </member>
+        <member name="M:Hik.Sps.Runnable.RunnablePlugInBasedApplication`1.OnWaitToStop">
+            <summary>
+            This method is called when plugin application is being waited to stop.
+            A pluging application may override this method to perform additional operations after stopped.
+            </summary>
+        </member>
+        <member name="E:Hik.Sps.Runnable.RunnablePlugInBasedApplication`1.Starting">
+            <summary>
+            This event is raised when plugin application is being started (before starting of plugins).
+            </summary>
+        </member>
+        <member name="E:Hik.Sps.Runnable.RunnablePlugInBasedApplication`1.Started">
+            <summary>
+            This event is raised when plugin application is started (after starting of plugins).
+            </summary>
+        </member>
+        <member name="E:Hik.Sps.Runnable.RunnablePlugInBasedApplication`1.Stopping">
+            <summary>
+            This event is raised when plugin application is being stopped (before stopping of plugins).
+            </summary>
+        </member>
+        <member name="E:Hik.Sps.Runnable.RunnablePlugInBasedApplication`1.Stopped">
+            <summary>
+            This event is raised when plugin application is stopped (after stopping of plugins).
+            </summary>
+        </member>
+        <member name="T:Hik.Sps.ApplicationPlugIn`1">
+            <summary>
+            Implementation of IApplicationPlugIn interface.
+            </summary>
+            <typeparam name="TPlugIn">Type of plugin interface</typeparam>
+        </member>
+        <member name="M:Hik.Sps.ApplicationPlugIn`1.#ctor(Hik.Sps.IPlugInBasedApplication,System.Type)">
+            <summary>
+            Creates a new ApplicationPlugIn object.
+            </summary>
+            <param name="plugInApplication">Reference to the application that uses plugin</param>
+            <param name="plugInType">Type of plugin class (that implements plugin interface)</param>
+        </member>
+        <member name="P:Hik.Sps.ApplicationPlugIn`1.Name">
+            <summary>
+            Name of the plugin.
+            </summary>
+        </member>
+        <member name="P:Hik.Sps.ApplicationPlugIn`1.PlugInProxy">
+            <summary>
+            Proxy object to use plugin by application over plugin interface.
+            </summary>
+        </member>
+        <member name="T:Hik.Sps.SpsHelper">
+            <summary>
+            This class contains general purpose methods to be used by PlugIn system.
+            </summary>
+        </member>
+        <member name="M:Hik.Sps.SpsHelper.GetAttribute``1(System.Reflection.MemberInfo)">
+            <summary>
+            Gets an attribute from a MemberInfo object.
+            </summary>
+            <typeparam name="T">Type of searched Attribute</typeparam>
+            <param name="memberInfo">MemberInfo object</param>
+            <returns>Specified Attribute, if found, else null</returns>
+        </member>
+        <member name="M:Hik.Sps.SpsHelper.FindAssemblyFiles(System.String)">
+            <summary>
+            Searches a directory and all subdirectories and returns a list of assembly files.
+            </summary>
+            <param name="plugInFolder">Directory to search assemblies</param>
+            <returns>List of found assemblies</returns>
+        </member>
+        <member name="M:Hik.Sps.SpsHelper.GetCurrentDirectory">
+            <summary>
+            Gets the current directory of executing assembly.
+            </summary>
+            <returns>Directory path</returns>
+        </member>
+        <member name="T:Hik.Sps.PlugInApplication`1">
+            <summary>
+            Implements the IPlugInApplication interface.
+            </summary>
+            <typeparam name="TApp">Type of application interface</typeparam>
+        </member>
+        <member name="P:Hik.Sps.PlugInApplication`1.ApplicationProxy">
+            <summary>
+            Proxy object to use application by plugin over application interface.
+            </summary>
+        </member>
+        <member name="P:Hik.Sps.PlugInApplication`1.Name">
+            <summary>
+            Name of the application.
+            </summary>
+        </member>
+    </members>
+</doc>
