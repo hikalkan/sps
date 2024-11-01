@@ -30,6 +30,7 @@ I developed a **S**imple **P**lug-In **S**ystem for this purpose, then I used it
 In computing, a **plug-in** is a set of software components that adds specific abilities to a larger software application [1]. You can allow to **extend** your application **without changing or even re-compiling** it by designing it as **plug-in based**. You can see a basic structure of an application - plugin relation in the figure below.
 
 ![Plug-In Example](images/Plug-InExample.png)
+
 *Figure - 1: Basic architecture of a plug-in based application (from Wikipedia) [2].*
 
 Since **host application** is independent from all **plug-ins** and can not know how they are **implemented**, it defines a **plug-in interface** that **must be implemented** by all plug-ins. Typically, a **plug-in manager** in the host application used to **load** and **manage** all plug-ins. In the simple case, all plug-ins are placed in a specific **plugin directory**, plug-in manager loads all **assemblies** (generally **dll** projects) in the plug-in directory and searchs for **classes those implement the plug-in interface**.
@@ -55,6 +56,7 @@ We will develop a very **simple calculator application** to demonstrate the usag
 First, let me show how the calculator works:
 
 ![Calculator Application](images/CalculatorApp.jpg)
+
 *Figure - 2: A plug-in based calculator application.*
 
 **Calculator** application has a simple **GUI**. You simply enter **two number**, select **operation** and press the **Calculate** button. Also, you see all **loaded plug-ins** on the right side of the form.
@@ -64,6 +66,7 @@ Calculator application does not provide any operation itself. **Operations can b
 There are two projects in calculator solution:
 
 ![Calculator solution](images/CalcutatorSol.png)
+
 *Figure - 3: Calculator application solution.*
 
 **CalculatorHostApp** is the main application that provides the GUI. **CalculatorPlugInLib** contains **plug-in interface** and **application interface**. Both of projects add SPS.dll (Simple Plug-In System) to references to be able to use plug-in system.
@@ -234,6 +237,7 @@ public double Calculate(string operation, double number1, double number2)
 Our plug-in infrastructure is ready to build plug-ins for the calculator application. We can add operation as many as we want without changing the calculator application. This is extensibility! Now, we can create a new solution to build some plug-ins:
 
 ![PlugIns solution](images/PlugInsSol.png)
+
 *Figure - 4: Plug-ins for calculator.*
 
 Our plug-ins **depend on** two library: **SPS.dll** and **CalculatorPlugInLib.dll**. You can define more than one **plug-in** in an **assembly**. I created three plug-ins in two assemblies.
