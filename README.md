@@ -72,7 +72,7 @@ There are two projects in calculator solution:
 
 We need a sign/char to show operation to the user (in operation combobox) and a method to calculate result for this operation:
 
-```
+```csharp
 using Hik.Sps;
 namespace CalculatorPlugInLib
 {
@@ -106,7 +106,7 @@ This interface is used by calculator application and implemented by all plug-ins
 
 Maybe it is not needed an **application interface** in a calculator application but I will define to demonstrate the usage of application interfaces. In SPS, you **must provide** an application interface even it has no member (an empty interface). Our application **provides** only **one method** to plug-ins:
 
-```
+```csharp
 using Hik.Sps;
 
 namespace CalculatorPlugInLib
@@ -129,7 +129,7 @@ namespace CalculatorPlugInLib
 
 We must implement the **ICalculatorApplication** interface in the calculator application:
 
-```
+```csharp
 using System.Windows.Forms;
 using CalculatorPlugInLib;
 using Hik.Sps;
@@ -160,7 +160,7 @@ It is inherited from **PlugInBasedApplication<ICalculatorOperationPlugIn>**. Thi
 
 Let's see how **CalculatorPlugInManager** is used in calculator application. First, we define an object from **CalculatorPlugInManager**:
 
-```
+```csharp
 /// <summary>
 /// The plug-in manager objects to communicate with plug-ins.
 /// </summary>
@@ -169,7 +169,7 @@ private CalculatorPlugInManager _plugInManager;
 
 Then we **load plugins** and fill **combobox** and **listbox** in the form's **constructor**:
 
-```
+```csharp
 //Create plug-in manager and set plug-in directory
 _plugInManager = new CalculatorPlugInManager();
 _plugInManager.PlugInFolder = Path.Combine(GetCurrentDirectory(), "PlugIns");
@@ -197,7 +197,7 @@ else
 
 **LoadPlugIns()** method loads all plug-ins from given **PlugInFolder** directory. We use **PlugInProxy** property to use the **proxy interface**. Finally, when user clicks the **Calculate** button, we find the right plug-in and calculate the result:
 
-```
+```csharp
 private void btnCalculate_Click(object sender, EventArgs e)
 {
     //Get inputs from form
@@ -240,7 +240,7 @@ Our plug-ins **depend on** two library: **SPS.dll** and **CalculatorPlugInLib.dl
 
 Let's see **AddOperation** plug-in:
 
-```
+```csharp
 using Hik.Sps;
 using CalculatorPlugInLib;
 
@@ -266,7 +266,7 @@ A plug-in has a **PlugIn** attribute (This attribute defines **name** of the plu
 
 Let's see **DivisionOperation** plug-in now:
 
-```
+```csharp
 using Hik.Sps;
 using CalculatorPlugInLib;
 
@@ -302,7 +302,7 @@ After creating and **compiling plug-ins**, we must place them into **PlugIns fol
 
 I will explain **some key parts** of **implementation** of SPS library. The **main class** that **loads plug-ins** is **PlugInBasedApplication<TPlugIn>**. It's **LoadPlugIns()** method is shown below:
 
-```
+```csharp
 /// <summary>
 /// Loads all PlugIns in PlugInFolder directory.
 /// </summary>
@@ -335,7 +335,7 @@ We simply get all **dll** and **exe** files in plug-in folder (using SpcHelper.*
 
 We create a new **ApplicationPlugIn<TPlugIn>** object for each plug-in type in LoadPlugIns() method. Let's see this class:
 
-```
+```csharp
 using System;
 
 namespace Hik.Sps
@@ -382,7 +382,7 @@ namespace Hik.Sps
 
 **Constructor** of this class is important. It **creates the plug-in** object and sets **Application** property using reflection techniques. The last class that will be explained is PlugIn class that is inherited by all plug-ins:
 
-```
+```csharp
 namespace Hik.Sps
 {
     /// <summary>
@@ -427,6 +427,6 @@ Lastly, I will mention about some usable classes in SPS library. If you want to 
 
 ## References
 
-[1] http://en.wikipedia.org/wiki/Plug-in_(computing)
-[2] http://en.wikipedia.org/wiki/File:Plug-InExample.png
-[3] http://msdn.microsoft.com/en-us/library/2bh4z9hs.aspx (Application Domains, MSDN)
+* [1] http://en.wikipedia.org/wiki/Plug-in_(computing)
+* [2] http://en.wikipedia.org/wiki/File:Plug-InExample.png
+* [3] http://msdn.microsoft.com/en-us/library/2bh4z9hs.aspx (Application Domains, MSDN)
