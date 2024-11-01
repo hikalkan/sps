@@ -63,7 +63,7 @@ Calculator application does not provide any operation itself. **Operations can b
 
 There are two projects in calculator solution:
 
-![Calculator solution](Images/CalcutatorSol.png)
+![Calculator solution](images/CalcutatorSol.png)
 *Figure - 3: Calculator application solution.*
 
 **CalculatorHostApp** is the main application that provides the GUI. **CalculatorPlugInLib** contains **plug-in interface** and **application interface**. Both of projects add SPS.dll (Simple Plug-In System) to references to be able to use plug-in system.
